@@ -1,0 +1,15 @@
+[MASTER]
+ignore=CVS,venv,.venv,tests
+load-plugins=pylint_django
+
+[FORMAT]
+max-line-length=88
+
+[MESSAGES CONTROL]
+disable=C0111,R0903,C0103,R0913,R0902,R0914,C0302,R0912,R0915,R0101,W0613,C0413,W0212
+
+[SIMILARITIES]
+min-similarity-lines=7
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
