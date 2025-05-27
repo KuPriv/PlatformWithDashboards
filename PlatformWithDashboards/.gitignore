@@ -5,8 +5,10 @@ __pycache__/
 
 # Local settings
 ./PlatformWithDashboards/settings.py
+static/
 
 .idea/
+./PlatformWithDashboards/__init__.py
 
 # Environments
 env/
