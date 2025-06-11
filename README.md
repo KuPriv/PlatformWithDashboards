@@ -6,13 +6,14 @@
 Почему именно этот проект?
 - Демонстрирует работу с основными технологиями
     - Python 3 + Django
-    - HTML/CSS + ?
+    - HTML/CSS + JS
     - PostgreSQL + ClickHouse
     - Redis
     - Celery
     - Git
     - pytest, coverage
-    - poetry, flake8, black, isort, pylint
+    - poetry
+    - flake8, black, isort, pylint
     - docker
     - YAML
 - Имеет реальную бизнес-ценность
