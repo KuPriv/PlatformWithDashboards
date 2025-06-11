@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local settings
+./PlatformWithDashboards/settings.py
+static/
+
+.idea/
+./PlatformWithDashboards/__init__.py
+
+# Environments
+env/
+venv/
+.venv/
+
+*.sqlite3
+*.log
