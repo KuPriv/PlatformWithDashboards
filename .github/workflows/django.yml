@@ -24,7 +24,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies with Poetry
         run: |
-          pip install poetry
+          pip install poetry --no-root
           poetry config virtualenvs.in-project true
           poetry install
       - name: Run Tests
