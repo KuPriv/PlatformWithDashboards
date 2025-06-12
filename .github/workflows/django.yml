@@ -54,7 +54,6 @@ jobs:
 
       - name: Check coverage
         run: |
-          cd ./PlatformWithDashboards
           poetry run python coverage_cicd.py
         env:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
