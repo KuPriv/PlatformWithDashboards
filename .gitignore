@@ -10,7 +10,6 @@ PlatformWithDashboards/secrets.py
 static/
 
 .idea/
-PlatformWithDashboards/__init__.py
 
 *.sqlite3
 *.log
