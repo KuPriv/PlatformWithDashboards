@@ -28,8 +28,8 @@ jobs:
           poetry config virtualenvs.in-project true
           poetry install --no-root
       - name: Run Tests
+        working-directory: ./PlatformWithDashboards
         run: |
-          working-directory: ./PlatformWithDashboards
           cat > secrets.py << 'EOF'
           SECRET_KEY = 'django-insecure-dummy-secret'
           GIST_COVERAGE_TOKEN = '${{ secrets.GIT_TOKEN }}'
@@ -46,6 +46,7 @@ jobs:
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
       - name: Check coverage
+        working-directory: ./PlatformWithDashboards
         run: |
           poetry run python coverage_cicd.py
         env:
