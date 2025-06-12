@@ -29,9 +29,12 @@ jobs:
           poetry install --no-root
       - name: Run Tests
         run: |
-          cat > ./PlatformWithDashboards/secrets.py << 'EOF'
+          working-directory: ./PlatformWithDashboards
+        run: |
+          cat > secrets.py << 'EOF'
           SECRET_KEY = 'django-insecure-dummy-secret'
-          GIST_COVERAGE_TOKEN = 'dummy-token'
+          GIST_COVERAGE_TOKEN = '${{ secrets.GIT_TOKEN }}'
+          GIST_COVERAGE_ID = '2c62f8e2753c047ffcace254e68163a8'
           EOF
           poetry run python manage.py test
       - name: Update passed icon
@@ -50,7 +53,7 @@ jobs:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
       - name: Show test logs
         if: failure()
-        run: cat ./test.log || echo "No log found"
+        run: cat ./PlatformWithDashboards/test.log || echo "No log found"
 
   update-badge:
     runs-on: ubuntu-latest
