@@ -5,6 +5,9 @@ description = ""
 authors = [
     {name = "Egor Sezen",email = "sezen.egor@mail.ru"}
 ]
+packages = [
+    { include = "PlatformWithDashboard" }
+]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
