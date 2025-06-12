@@ -18,24 +18,31 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install Dependencies with Poetry
         run: |
           pip install poetry
           poetry config virtualenvs.in-project true
           poetry install --no-root
-      - name: Run Tests
-        working-directory: ./PlatformWithDashboards
+
+      - name: Create secrets file
         run: |
-          cat > secrets.py << 'EOF'
+          cat > ./PlatformWithDashboards/secrets.py << 'EOF'
           SECRET_KEY = 'django-insecure-dummy-secret'
           GIST_COVERAGE_TOKEN = '${{ secrets.GIT_TOKEN }}'
-          GIST_COVERAGE_ID = '2c62f8e2753c047ffcace254e68163a8'
+          GIST_COVERAGE_ID = '10addf2357a528180330d3f6db745d43'
           EOF
+
+      - name: Run Tests
+        run: |
+          cd ./PlatformWithDashboards
           poetry run python manage.py test
+
       - name: Update passed icon
         if: success()
         uses: Sibz/github-status-action@v1
@@ -45,12 +52,14 @@ jobs:
           description: 'Passed'
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
+
       - name: Check coverage
-        working-directory: ./PlatformWithDashboards
         run: |
+          cd ./PlatformWithDashboards
           poetry run python coverage_cicd.py
         env:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
+
       - name: Show test logs
         if: failure()
         run: cat ./PlatformWithDashboards/test.log || echo "No log found"
