@@ -10,24 +10,20 @@ packages = [
 ]
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "django (==5.2.3)",
-    "celery (==5.5.2)",
-    "coverage (==7.8.1)",
-    "certifi (==2025.4.26)",
-    "charset-normalizer (==3.4.2)",
-    "pre-commit (==4.2.0)",
-    "pylint (==3.3.7)",
-    "idna (==3.10)",
-    "requests (==2.32.3)",
-    "sqlparse (==0.5.3)",
-    "urllib3 (==2.4.0)",
-    "redis (==6.1.0)",
-    "black (==25.1.0)",
-    "flake8 (==7.2.0)",
-    "isort (==6.0.1)"
-]
 
+dependencies = [
+    "django==5.2.3",
+    "celery==5.5.2",
+    "coverage==7.8.1",
+    "certifi==2025.4.26",
+    "charset-normalizer==3.4.2",
+    "pre-commit==4.2.0",
+    "idna==3.10",
+    "requests==2.32.3",
+    "sqlparse==0.5.3",
+    "urllib3==2.4.0",
+    "redis==6.1.0"
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
