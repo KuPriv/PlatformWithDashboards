@@ -22,15 +22,16 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install Dependencies
+      - name: Install Dependencies with Poetry
         run: |
-          python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install poetry
+          poetry config virtualenvs.in-project true
+          poetry install
       - name: Run Tests
         run: |
           cd ./PlatformWithDashboards
           echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./PlatformWithDashboard/secrets.py
-          python3 manage.py test
+          poetry run python manage.py test
       - name: Update passed icon
         uses: Sibz/github-status-action@v1
         with:
@@ -41,9 +42,12 @@ jobs:
           sha: ${{github.event.pull_request.head.sha || github.sha}}
       - name: Check coverage
         run: |
-          python3 coverage_cicd.py
+          poetry run python coverage_cicd.py
         env:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
+      - name: Show test logs
+        if: failure()
+        run: cat ./PlatformWithDashboards/test.log || echo "No log found"
 
   update-badge:
     runs-on: ubuntu-latest
