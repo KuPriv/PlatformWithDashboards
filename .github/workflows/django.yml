@@ -29,7 +29,7 @@ jobs:
           poetry install --no-root
       - name: Run Tests
         run: |
-          cd ./PlatformWithDashboards
+          cd ../..
           echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./PlatformWithDashboard/secrets.py
           poetry run python manage.py test
       - name: Update passed icon
