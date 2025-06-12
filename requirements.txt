@@ -4,7 +4,6 @@ certifi==2025.4.26
 charset-normalizer==3.4.2
 pre_commit==4.2.0
 pylint==3.3.7
-pylint-django==2.6.1
 idna==3.10
 requests==2.32.3
 sqlparse==0.5.3
