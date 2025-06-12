@@ -10,7 +10,7 @@
     - PostgreSQL + ClickHouse
     - Redis
     - Celery
-    - Git
+    - RabbitMQ
     - pytest, coverage
     - poetry
     - flake8, black, isort, pylint
