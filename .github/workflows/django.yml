@@ -29,8 +29,7 @@ jobs:
           poetry install --no-root
       - name: Run Tests
         run: |
-          cd ./PlatformWithDashboards
-          echo "SECRET_KEY = 'django-insecure-dummy-secret'" > secrets.py
+          echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./PlatformWithDashboards/secrets.py
           poetry run python manage.py test
       - name: Update passed icon
         if: success()
@@ -43,13 +42,12 @@ jobs:
           sha: ${{github.event.pull_request.head.sha || github.sha}}
       - name: Check coverage
         run: |
-          cd ./PlatformWithDashboards
           poetry run python coverage_cicd.py
         env:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
       - name: Show test logs
         if: failure()
-        run: cat ./PlatformWithDashboards/test.log || echo "No log found"
+        run: cat ./test.log || echo "No log found"
 
   update-badge:
     runs-on: ubuntu-latest
