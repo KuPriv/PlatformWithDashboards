@@ -30,7 +30,6 @@ jobs:
       - name: Run Tests
         run: |
           working-directory: ./PlatformWithDashboards
-        run: |
           cat > secrets.py << 'EOF'
           SECRET_KEY = 'django-insecure-dummy-secret'
           GIST_COVERAGE_TOKEN = '${{ secrets.GIT_TOKEN }}'
