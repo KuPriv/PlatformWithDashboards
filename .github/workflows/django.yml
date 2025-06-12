@@ -17,7 +17,7 @@ jobs:
             python-version: "3.13"
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -29,10 +29,11 @@ jobs:
           poetry install --no-root
       - name: Run Tests
         run: |
-          cd ../..
+          cd ./PlatformWithDashboards
           echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./PlatformWithDashboard/secrets.py
           poetry run python manage.py test
       - name: Update passed icon
+        if: success()
         uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.GIT_TOKEN}}
@@ -42,6 +43,7 @@ jobs:
           sha: ${{github.event.pull_request.head.sha || github.sha}}
       - name: Check coverage
         run: |
+          cd ./PlatformWithDashboards
           poetry run python coverage_cicd.py
         env:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
