@@ -30,7 +30,7 @@ jobs:
       - name: Run Tests
         run: |
           cd ./PlatformWithDashboards
-          echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./PlatformWithDashboard/secrets.py
+          echo "SECRET_KEY = 'django-insecure-dummy-secret'" > secrets.py
           poetry run python manage.py test
       - name: Update passed icon
         if: success()
