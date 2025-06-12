@@ -40,7 +40,8 @@ jobs:
 
       - name: Run Tests
         run: |
-          poetry run python manage.py test
+          poetry run coverage run --source='.' manage.py test
+          poetry run coverage xml
 
       - name: Update passed icon
         if: success()
@@ -60,7 +61,7 @@ jobs:
 
       - name: Show test logs
         if: failure()
-        run: cat ./PlatformWithDashboards/test.log || echo "No log found"
+        run: cat ./test.log || echo "No log found"
 
   update-badge:
     runs-on: ubuntu-latest
