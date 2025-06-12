@@ -1,5 +1,5 @@
-![action status](https://gist.githubusercontent.com/KuPriv/10addf2357a528180330d3f6db745d43/raw/f45dc909619ec1d81c4520d598ea7794fe8f9de1/git-actions.svg)
-![coverage status](https://gist.githubusercontent.com/KuPriv/2c62f8e2753c047ffcace254e68163a8/raw/74cb552291294f9a93af1929b6be32c1c12b1082/coverage.svg)
+![action status](https://gist.githubusercontent.com/KuPriv/10addf2357a528180330d3f6db745d43/raw/92831f8ab4fb1ab32eba7f10954559f0f73ee4f8/git-actions.svg)
+![coverage status](https://gist.githubusercontent.com/KuPriv/10addf2357a528180330d3f6db745d43/raw/92831f8ab4fb1ab32eba7f10954559f0f73ee4f8/coverage.svg)
 
 Аналитическая платформа с даш-бордами.
 
