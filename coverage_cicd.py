@@ -23,7 +23,7 @@ if __name__ == "__main__":
     cov.start()
     failures = test_runner.run_tests(["polls"])
     cov.stop()
-    result = cov.report(include="*\\views.py")
+    result = cov.report()
     SVG = f"""
     <svg xmlns="http://www.w3.org/2000/svg" width="196" height="20">
     <title>Coverage - { result }%</title>
