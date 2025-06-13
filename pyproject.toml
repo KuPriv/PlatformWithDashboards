@@ -22,7 +22,8 @@ dependencies = [
     "requests==2.32.3",
     "sqlparse==0.5.3",
     "urllib3==2.4.0",
-    "redis==6.1.0"
+    "redis==6.1.0",
+    "pytest-django (>=4.11.1,<5.0.0)"
 ]
 
 [build-system]
@@ -37,4 +38,3 @@ pylint = "^3.3.7"
 pytest = "^8.4.0"
 pytest-django = "^4.11.1"
 pre-commit = "^4.2.0"
-
