@@ -26,3 +26,7 @@ repos:
     hooks:
       - id: pylint
         args: [polls]
+        additional_dependencies:
+          - django
+          - pylint-django
+          - celery
