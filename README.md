@@ -3,7 +3,7 @@
 
 Аналитическая платформа с даш-бордами.
 
-- Технологии
+Технологии
   - Backend
     - Python 3 + Django
     - PostgreSQL + ClickHouse
@@ -19,8 +19,11 @@
     - nginx
     - docker + docker compose
     - YAML
+    - pre-commit
 
 Настроен CI/CD пайплайн на GitHub Actions: состояние сборки, покрытие тестами
+
+Используется [pre-commit](https://pre-commit.com/) для локальной проверки кода перед коммитом.
 
 ФУНКЦИОНАЛЬНОСТЬ:
 
