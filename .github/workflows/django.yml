@@ -1,6 +1,6 @@
 name: Coverage github
 run-name: ${{ github.actor }} is testing out GitHub Actions
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   run_unittests:
