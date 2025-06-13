@@ -3,7 +3,7 @@
 
 Аналитическая платформа с даш-бордами.
 
-- Технологии
+Технологии
   - Backend
     - Python 3 + Django
     - PostgreSQL + ClickHouse
