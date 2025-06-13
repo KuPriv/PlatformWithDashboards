@@ -39,3 +39,7 @@ pylint = "^3.3.7"
 pytest = "^8.4.0"
 pytest-django = "^4.11.1"
 pre-commit = "^4.2.0"
+pylint-django = "^2.6.1"
+
+[tool.black]
+line-length = 79
