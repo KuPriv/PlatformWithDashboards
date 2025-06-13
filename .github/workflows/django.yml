@@ -59,6 +59,10 @@ jobs:
         env:
           COVERAGE_THRESHOLD: ${{vars.COVERAGE_THRESHOLD}}
 
+      - name: Run pytest
+        run: |
+          poetry run pytest --maxfail=1 --disable-warnings -q
+
       - name: Show test logs
         if: failure()
         run: cat ./test.log || echo "No log found"
