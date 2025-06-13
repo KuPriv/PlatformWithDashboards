@@ -4,16 +4,20 @@
 Аналитическая платформа с даш-бордами.
 
 - Технологии
+  - Backend
     - Python 3 + Django
-    - HTML/CSS + JS
     - PostgreSQL + ClickHouse
-    - Redis
-    - Celery
-    - RabbitMQ
-    - pytest, coverage
+    - Celery + Redis
+    - pytest + coverage
     - poetry
+  - Frontend
+    - HTML/CSS + JS
+  - DevOps & Monitoring
+    - GitHub Actions
+    - grafana + prometheus
     - flake8, black, isort, pylint
-    - docker
+    - nginx
+    - docker + docker compose
     - YAML
 
 Настроен CI/CD пайплайн на GitHub Actions: состояние сборки, покрытие тестами
@@ -46,4 +50,8 @@
 
 - Оповещения о завершении обработки данных
 - Алерты при достижении заданных пороговых значений
-- Очередь задач - RabbitMQ
+
+CI/CD 
+
+- Сборка и тестирование проекта — GitHub Actions
+- Проверка стиля кода и покрытия
