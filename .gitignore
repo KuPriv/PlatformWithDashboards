@@ -5,6 +5,7 @@ __pycache__/
 
 .venv/
 .env
+.coverage
 
 # Local settings
 PlatformWithDashboards/secrets.py
