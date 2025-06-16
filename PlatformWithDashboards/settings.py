@@ -1,4 +1,7 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 from . import secrets
 
@@ -66,13 +69,14 @@ WSGI_APPLICATION = "PlatformWithDashboards.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# pylint: disable=E1101
+load_dotenv()
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "dashboard_db",
-        "USER": f"{secrets.USER_BD}",
-        "PASSWORD": f"{secrets.PASSWORD_FOR_BD}",
+        "USER": os.getenv("USER_BD"),
+        "PASSWORD": os.getenv("PASSWORD_FOR_BD"),
         "HOST": "localhost",
         "PORT": "5432",
     }
