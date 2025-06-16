@@ -5,6 +5,20 @@ on: [pull_request]
 jobs:
   run_unittests:
     runs-on: ${{ matrix.os }}
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     strategy:
       max-parallel: 4
       matrix:
@@ -42,6 +56,8 @@ jobs:
         run: |
           poetry run coverage run --source='.' manage.py test
           poetry run coverage xml
+        env:
+          DATABASE_URL: postgres://postgres:postgres_password@localhost:5432/test_db
 
       - name: Update passed icon
         if: success()
