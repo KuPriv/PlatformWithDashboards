@@ -25,7 +25,7 @@ dependencies = [
     "redis==6.1.0",
     "pytest-django (>=4.11.1,<5.0.0)",
     "prometheus-client (>=0.22.1,<0.23.0)",
-    "psycopg2-binary (>=2.9.10,<3.0.0)"
+    "psycopg[binary] (>=3.2.9,<4.0.0)",
 ]
 
 [build-system]
@@ -41,7 +41,6 @@ pytest = "^8.4.0"
 pytest-django = "^4.11.1"
 pre-commit = "^4.2.0"
 pylint-django = "^2.6.1"
-psycopg2 = "^2.9.10"
 
 [tool.black]
 line-length = 79
