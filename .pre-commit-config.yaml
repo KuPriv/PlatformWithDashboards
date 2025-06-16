@@ -30,3 +30,5 @@ repos:
           - django
           - pylint-django
           - celery
+          - psycopg
+          - psycopg2
