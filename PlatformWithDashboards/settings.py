@@ -74,9 +74,9 @@ load_dotenv()
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("NAME_DB"),
-        "USER": "postgres",
-        "PASSWORD": os.getenv("PASSWORD_DB"),
+        "NAME": os.getenv("NAME_DB", "test_db"),
+        "USER": os.getenv("USER_DB", "postgres"),
+        "PASSWORD": os.getenv("PASSWORD_DB", "test_password"),
         "HOST": "localhost",
         "PORT": "5432",
     }
