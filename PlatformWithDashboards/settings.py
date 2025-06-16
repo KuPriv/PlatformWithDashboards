@@ -75,8 +75,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "dashboard_db",
-        "USER": os.getenv("USER_BD"),
-        "PASSWORD": os.getenv("PASSWORD_FOR_BD"),
+        "USER": "postgres",
+        "PASSWORD": os.getenv("PASSWORD_DB"),
         "HOST": "localhost",
         "PORT": "5432",
     }
