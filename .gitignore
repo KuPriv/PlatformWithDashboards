@@ -8,7 +8,6 @@ __pycache__/
 .coverage
 
 # Local settings
-PlatformWithDashboards/secrets.py
 static/
 
 .idea/
