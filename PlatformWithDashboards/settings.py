@@ -3,8 +3,6 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from . import secrets
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -12,8 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+# pylint: disable=E1101
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secrets.SECRET_KEY
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -22,8 +21,8 @@ ALLOWED_HOSTS = []
 
 # pylint: disable=line-too-long
 # GIST COVERAGE tests: https://gist.github.com/KuPriv/2c62f8e2753c047ffcace254e68163a8 # noqa: E501
-GIST_COVERAGE_TOKEN = secrets.GIST_COVERAGE_TOKEN
-GIST_COVERAGE_ID = secrets.GIST_COVERAGE_ID
+GIST_COVERAGE_TOKEN = os.getenv("GIST_COVERAGE_TOKEN")
+GIST_COVERAGE_ID = os.getenv("GIST_COVERAGE_ID")
 
 # Application definition
 
@@ -69,14 +68,13 @@ WSGI_APPLICATION = "PlatformWithDashboards.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-# pylint: disable=E1101
 load_dotenv()
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("NAME_DB", "test_db"),
-        "USER": os.getenv("USER_DB", "postgres"),
-        "PASSWORD": os.getenv("PASSWORD_DB", "test_password"),
+        "NAME": os.getenv("DB_NAME", "test_db"),
+        "USER": os.getenv("DB_USER", "postgres"),
+        "PASSWORD": os.getenv("DB_PASSWORD", "test_password"),
         "HOST": "localhost",
         "PORT": "5432",
     }
