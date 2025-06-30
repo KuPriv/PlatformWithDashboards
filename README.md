@@ -7,9 +7,11 @@
   - Backend
     - Python 3 + Django
     - PostgreSQL + ClickHouse
-    - Celery + Redis
+    - Redis
+    - Celery + RabbitMQ
     - pytest + coverage
     - poetry
+    - JWT аутентификация
   - Frontend
     - HTML/CSS + JS
   - DevOps & Monitoring
@@ -54,7 +56,7 @@
 - Оповещения о завершении обработки данных
 - Алерты при достижении заданных пороговых значений
 
-CI/CD 
+CI/CD
 
 - Сборка и тестирование проекта — GitHub Actions
 - Проверка стиля кода и покрытия
