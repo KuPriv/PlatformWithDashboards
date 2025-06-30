@@ -3,6 +3,8 @@
 
 Аналитическая платформа с даш-бордами.
 
+После реализации проекта readme будет переписан, пока записал, что примерно буду использовать
+
 Технологии
   - Backend
     - Python 3 + Django
@@ -13,7 +15,8 @@
     - poetry
     - JWT аутентификация
   - Frontend
-    - HTML/CSS + JS
+    - HTML/CSS
+    - React + TypeScript
   - DevOps & Monitoring
     - GitHub Actions
     - grafana + prometheus
