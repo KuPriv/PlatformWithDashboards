@@ -71,7 +71,8 @@ exclude = [
     ".git",
     "__pycache__",
     "build",
-    "dist"
+    "dist",
+    'coverage_cicd.py',
 ]
 
 [tool.poetry.requires-plugins]
