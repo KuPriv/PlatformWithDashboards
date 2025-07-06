@@ -3,9 +3,7 @@ import os
 from celery import Celery
 
 # pylint: disable=E1101
-os.environ.setdefault(
-    "DJANGO_SETTINGS_MODULE", "PlatformWithDashboards.settings"
-)
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PlatformWithDashboards.settings")
 
 app = Celery("PlatformWithDashboards")
 
