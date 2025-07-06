@@ -59,21 +59,5 @@ combine_as_imports = true
 known_first_party = ["PlatformWithDashboards", "polls"]
 skip_gitignore = true
 
-[tool.flake8]
-max-line-length = 88
-ignore = [
-    "E203",
-    "E266",
-    "E501",
-    "W503"
-]
-exclude = [
-    ".git",
-    "__pycache__",
-    "build",
-    "dist",
-    "coverage_cicd.py",
-]
-
 [tool.poetry.requires-plugins]
 poetry-plugin-export = ">=1.8"
