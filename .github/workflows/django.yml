@@ -46,7 +46,7 @@ jobs:
 
       - name: Create secrets file
         run: |
-          cat > ./PlatformWithDashboards/secrets.py << 'EOF'
+          cat > .env << 'EOF'
           SECRET_KEY = 'django-insecure-dummy-secret'
           GIST_COVERAGE_TOKEN = '${{ secrets.GIT_TOKEN }}'
           GIST_COVERAGE_ID = '10addf2357a528180330d3f6db745d43'
