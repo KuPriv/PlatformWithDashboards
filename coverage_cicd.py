@@ -1,7 +1,7 @@
 import json
 import os
-import coverage
 
+import coverage
 import django
 import requests
 from django.conf import settings
@@ -9,13 +9,14 @@ from django.test.utils import get_runner
 
 from PlatformWithDashboards.settings import GIST_COVERAGE_ID, GIST_COVERAGE_TOKEN
 
+
 class ThresholdException(Exception):
     pass
 
 
 COVERAGE_THRESHOLD = float(os.environ.get("COVERAGE_THRESHOLD", 70))
 if __name__ == "__main__":
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'PlatformWithDashboards.settings'
+    os.environ["DJANGO_SETTINGS_MODULE"] = "PlatformWithDashboards.settings"
     django.setup()
     TestRunner = get_runner(settings)
     test_runner = TestRunner()
@@ -61,16 +62,18 @@ if __name__ == "__main__":
     </svg>
     """
     payload = {
-        "description":"An updated gist description",
-        "files":{"coverage.svg":{"content": SVG}}}
+        "description": "An updated gist description",
+        "files": {"coverage.svg": {"content": SVG}},
+    }
     headers = {
         "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer { GIST_COVERAGE_TOKEN }",
-        "X-GitHub-Api-Version": "2022-11-28"
-        }
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
     URL = f"https://api.github.com/gists/{ GIST_COVERAGE_ID }"
     if result >= COVERAGE_THRESHOLD:
         r = requests.patch(URL, headers=headers, data=json.dumps(payload), timeout=10)
     else:
-        raise ThresholdException(f"Coverage is below the ({COVERAGE_THRESHOLD})"
-                                 f" threshold")
+        raise ThresholdException(
+            f"Coverage is below the ({COVERAGE_THRESHOLD})" f" threshold"
+        )

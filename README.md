@@ -3,15 +3,20 @@
 
 Аналитическая платформа с даш-бордами.
 
+После реализации проекта readme будет переписан, пока записал, что примерно буду использовать
+
 Технологии
   - Backend
     - Python 3 + Django
     - PostgreSQL + ClickHouse
-    - Celery + Redis
+    - Redis
+    - Celery + RabbitMQ
     - pytest + coverage
     - poetry
+    - JWT аутентификация
   - Frontend
-    - HTML/CSS + JS
+    - HTML/CSS
+    - React + TypeScript
   - DevOps & Monitoring
     - GitHub Actions
     - grafana + prometheus
@@ -54,7 +59,7 @@
 - Оповещения о завершении обработки данных
 - Алерты при достижении заданных пороговых значений
 
-CI/CD 
+CI/CD
 
 - Сборка и тестирование проекта — GitHub Actions
 - Проверка стиля кода и покрытия
