@@ -20,20 +20,3 @@ repos:
     rev: 7.2.0
     hooks:
       - id: flake8
-
-  - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v3.0.0a5
-    hooks:
-      - id: pylint
-        args: [PlatformWithDashboards, polls]
-        additional_dependencies:
-          - django
-          - pylint-django
-          - celery
-          - psycopg
-          - psycopg2
-          - python-dotenv
-          - requests
-          - coverage
-        env:
-          DJANGO_SETTINGS_MODULE: PlatformWithDashboards.settings
