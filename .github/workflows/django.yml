@@ -63,7 +63,7 @@ jobs:
         if: success()
         uses: Sibz/github-status-action@v1
         with:
-          authToken: ${{secrets.GIT_TOKEN}}
+          github_token: ${{secrets.GIT_TOKEN}}
           context: 'CI CHECK'
           description: 'Passed'
           state: 'success'
