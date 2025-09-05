@@ -1,7 +1,6 @@
 name: Coverage github
 run-name: ${{ github.actor }} is testing out GitHub Actions
 on: [pull_request]
-
 jobs:
   run_unittests:
     runs-on: ${{ matrix.os }}
@@ -63,7 +62,7 @@ jobs:
         if: success()
         uses: Sibz/github-status-action@v1
         with:
-          github_token: ${{secrets.GIT_TOKEN}}
+          authToken: ${{secrets.GIT_TOKEN}}
           context: 'CI CHECK'
           description: 'Passed'
           state: 'success'
