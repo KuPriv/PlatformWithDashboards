@@ -1,18 +1,17 @@
 from django.contrib.auth import get_user_model
-from django.test import Client, TestCase
+from django.test import TestCase
 from django.urls import NoReverseMatch, reverse
 
 from polls import views
 
+User = get_user_model()
+
 
 class ViewsTestCase(TestCase):
-
     def setUp(self):
         """Настройка данных для тестов"""
-        self.client = Client()
-        user_model = get_user_model()
-        self.user = user_model.objects.create_user(
-            username="testuser", password="testpass123"
+        self.user = User.objects.create_user(
+            email="test@example.com", password="testpass123"
         )
 
     def test_index_view(self):
